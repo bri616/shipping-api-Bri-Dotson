@@ -3,21 +3,19 @@ require 'rails_helper'
 RSpec.describe UpsController, :type => :controller do
   describe "rates" do
     it 'returns a json object with shipping rates' do
-      get :rates,:params => {
+      get :rates,:specs => {
         :weight => "100",
         :country_o => 'US',
         :state_o => 'CA',
         :city_o => 'Beverly Hills',
         :zip_o => '90210',
-        :country => 'CA',
-        :province => 'ON',
-        :city => 'Ottawa',
-        :postal_code => 'K1P 1J1'
+        :country => 'US',
+        :state => 'AZ',
+        :city => 'Chandler',
+        :zip => '85225'
       }
 
-      puts JSON.parse(response.body.to_s).inspect
-      puts JSON.parse(response.body.to_s)["UPS Standard"]
-      expect(JSON.parse(response.body.to_s)["UPS Standard"]).to be > 0
+      expect(JSON.parse(response.body.to_s)["UPS Ground"]).to be > 0
 
     end
 
