@@ -15,6 +15,8 @@ RSpec.describe UpsController, :type => :controller do
         :postal_code => 'K1P 1J1'
       }
 
+      puts JSON.parse(response.body.to_s).inspect
+      puts JSON.parse(response.body.to_s)["UPS Standard"]
       expect(JSON.parse(response.body.to_s)["UPS Standard"]).to be > 0
 
     end
