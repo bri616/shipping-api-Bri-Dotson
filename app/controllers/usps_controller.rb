@@ -1,0 +1,2 @@
+class UspsController < ApplicationController
+end

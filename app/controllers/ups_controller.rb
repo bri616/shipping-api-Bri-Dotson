@@ -28,6 +28,10 @@ def spec_checker(params)
   case
   when params[:package_specs].blank?
     @message = "Must provide package specifications"
+  when params[:origin_specs].blank?
+    @message = "Must provide origin address specifications"
+  when params[:destination_specs].blank?
+    @message = "Must provide destination address specifications"
   else
     false
   end

@@ -14,13 +14,13 @@ RSpec.describe UpsController, :type => :controller do
           :city => 'Beverly Hills',
           :zip => '90210'
           },
-          
+
         :destination_specs => {
           :country => 'US',
           :state => 'AZ',
           :city => 'Chandler',
           :zip => '85225'
-        }
+          }
 
       expect(JSON.parse(response.body.to_s)["UPS Ground"]).to be > 0
 
