@@ -15,7 +15,7 @@ RSpec.describe UpsController, :type => :controller do
         :postal_code => 'K1P 1J1'
       }
 
-      expect(response)
+      puts response.inspect
 
     end
   end
