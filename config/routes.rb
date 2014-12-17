@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  get "ups/rates", to: "ups#rates" 
+  get "ups/rates", to: "ups#rates"
+  get "usps/rates", to: "usps#rates"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
