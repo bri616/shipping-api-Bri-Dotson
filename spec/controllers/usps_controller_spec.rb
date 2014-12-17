@@ -4,7 +4,7 @@ RSpec.describe UspsController, :type => :controller do
   it 'returns a json object with shipping rates' do
     get :rates,
     :package_specs => {
-      :weights => ["100"]
+      :weights => ["200"]
     },
 
     :origin_specs => {
@@ -21,7 +21,7 @@ RSpec.describe UspsController, :type => :controller do
       :zip => '85225'
     }
 
-    expect(JSON.parse(response.body.to_s)["USPS Ground"]).to be > 0
+    expect(JSON.parse(response.body.to_s)["USPS First-Class Mail Parcel"]).to be > 0
 
   end
 end
