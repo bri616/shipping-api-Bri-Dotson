@@ -1,4 +1,8 @@
 class UspsController < ApplicationController
+  def test
+    render json: {error: "everything is awesome"}, status: :ok
+  end
+
   def rates
     package_specs = params[:package_specs]
     origin_specs = params[:origin_specs]
