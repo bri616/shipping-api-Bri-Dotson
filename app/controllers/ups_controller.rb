@@ -8,6 +8,7 @@ class UpsController < ApplicationController
     if spec_checker(params)
       render json: {error: @message}, status: :bad_request
     else
+      puts "something!!"
       packages = package_specs[:weights].collect {|weight| Package.new(weight.to_i, nil)}
 
       origin = Location.new(origin_specs)
