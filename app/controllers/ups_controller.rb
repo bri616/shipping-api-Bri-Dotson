@@ -1,6 +1,5 @@
 class UpsController < ApplicationController
   def rates
-    puts params.inspect
     package_specs = params[:package_specs]
     origin_specs = params[:origin_specs]
     destination_specs = params[:destination_specs]
@@ -8,7 +7,6 @@ class UpsController < ApplicationController
     if spec_checker(params)
       render json: {error: @message}, status: :bad_request
     else
-      puts "something!!"
       packages = package_specs[:weights].collect {|weight| Package.new(weight.to_i, nil)}
 
       origin = Location.new(origin_specs)
