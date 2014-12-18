@@ -7,6 +7,10 @@ gem 'rails', '4.1.8'
 gem 'activemerchant'
 gem 'active_shipping'
 
+group :production do
+  gem 'rails_12factor'
+end
+
 group :development, :test do
   gem 'rspec-rails'
   gem 'dotenv-rails'
