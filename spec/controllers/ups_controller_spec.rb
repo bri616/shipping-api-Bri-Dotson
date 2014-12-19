@@ -5,7 +5,8 @@ RSpec.describe UpsController, :type => :controller do
     it 'returns a json object with shipping rates' do
       get :rates,
         :package_specs => {
-          :weights => ["100"]
+          :weights => ["100"],
+          :dimensions => [["20","20","20"]]
           },
 
         :origin_specs => {

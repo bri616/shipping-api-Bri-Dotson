@@ -10,7 +10,7 @@ class UspsController < ApplicationController
     if spec_checker(params)
       render json: {error: @message}, status: :bad_request
     else
-      packages = package_specs.collect {|package| Package.new(package[:weight].to_i, package[:dimensions])}
+      packages = package_specs[:weights].zip(package_specs[:dimensions]).collect{|weight, dimensions| Package.new(weight.to_i, dimensions.collect(&:to_i)) }
 
       origin = Location.new(origin_specs)
 
