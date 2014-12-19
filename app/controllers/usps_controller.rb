@@ -4,6 +4,8 @@ class UspsController < ApplicationController
   end
 
   def rates
+    puts params.inspect
+    
     package_specs = params[:package_specs]
     origin_specs = params[:origin_specs]
     destination_specs = params[:destination_specs]
