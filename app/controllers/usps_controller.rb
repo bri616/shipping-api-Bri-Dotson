@@ -7,7 +7,7 @@ class UspsController < ApplicationController
     puts params.inspect
 
     package_specs = params[:package_specs]
-    dims = package_specs[:dimensions].split("x")
+    dims = package_specs[:dimensions].collect{ |dim| dim.split("x") }
     origin_specs = params[:origin_specs]
     destination_specs = params[:destination_specs]
     if spec_checker(params)

@@ -1,17 +1,14 @@
 class UpsController < ApplicationController
   def rates
-    puts params.inspect
 
     package_specs = params[:package_specs]
     dims = package_specs[:dimensions].collect{ |dim| dim.split("x") }
-    puts dims.inspect
     origin_specs = params[:origin_specs]
     destination_specs = params[:destination_specs]
 
     if spec_checker(params)
       render json: {error: @message}, status: :bad_request
     else
-      puts package_specs[:weights].zip(dims).inspect
       packages = package_specs[:weights].zip(dims).collect{|weight, dimensions| Package.new(weight.to_i, dimensions.collect(&:to_i)) }
 
       origin = Location.new(origin_specs)
