@@ -5,14 +5,15 @@ class UspsController < ApplicationController
 
   def rates
     puts params.inspect
-    
+
     package_specs = params[:package_specs]
+    dims = package_specs[:dimensions].split("x")
     origin_specs = params[:origin_specs]
     destination_specs = params[:destination_specs]
     if spec_checker(params)
       render json: {error: @message}, status: :bad_request
     else
-      packages = package_specs[:weights].zip(package_specs[:dimensions]).collect{|weight, dimensions| Package.new(weight.to_i, dimensions.collect(&:to_i)) }
+      packages = package_specs[:weights].zip(dims).collect{|weight, dimensions| Package.new(weight.to_i, dimensions.collect(&:to_i)) }
 
       origin = Location.new(origin_specs)
 

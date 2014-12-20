@@ -5,7 +5,7 @@ RSpec.describe UspsController, :type => :controller do
     get :rates,
     :package_specs => {
       :weights => ["200"],
-      :dimensions => [["20","20","20"]]
+      :dimensions => ["20x20x20"]
     },
 
     :origin_specs => {
